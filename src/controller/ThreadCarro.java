@@ -18,13 +18,13 @@ public class ThreadCarro extends Thread {
 	public void run() {
 		carroParado();
 		try {
-			// --------P (Acquire)-------------//
+			// --------P (Acquire)-----------
 			semaforo.acquire();
 			carroAndando();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} finally {
-			// --------V (Release)-------------//
+			// --------V (Release)-----------
 			semaforo.release();
 			carroPassou();
 		}
@@ -36,7 +36,7 @@ public class ThreadCarro extends Thread {
 
 	private void carroAndando() {
 
-		System.out.println("carro #" + this.idCarro + " seguiu para direção " + this.direcao);
+		System.out.println("Carro #" + this.idCarro + " seguiu para direção " + this.direcao);
 
 		int tempo = 1000;
 		try {
@@ -47,7 +47,7 @@ public class ThreadCarro extends Thread {
 	}
 
 	private void carroPassou() {
-		System.out.println("carro #" + idCarro + " passou o cruzamento ");
+		System.out.println("Carro #" + idCarro + " passou o cruzamento ");
 	}
 
 }
